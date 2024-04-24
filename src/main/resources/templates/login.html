@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="(~{base::Layout(~{::section})})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+</head>
+<body>
+    <section>
+		<div class="container p-3 ">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card mt-5">
+					    <div class="card-body ">
+				            <h1 class="text-center" style="color:#009688!important;">Login here !!</h1>
+							<form th:action="@{/userLogin}" method="post" style="color:#009688!important;">
+								
+								<div th:if="${param.error}" class="alert alert-danger text-center ">
+								         Invalid email and password !!
+								</div>
+								<div th:if="${param.logout}" class="alert alert-success text-center">
+								         You have successfully loggout !!
+								</div>
+								<div th:if="${param.change}" class="alert alert-success text-center">
+								         [[${param.change}]]
+								</div>
+								<div class="mb-3 mt-3">
+									<label for="email">Enter Email</label> 
+									<input type="email"
+										   name="username" 
+										   id="email" 
+										   required="required"
+										   class="form-control " />
+								</div>
+								
+								<div class="mb-3">
+									<label for="password">Enter Password</label> 
+									<input type="password"
+										   name="password" 
+										   id="pasword" 
+										   required="required"
+										   class="form-control" />
+								</div>
+								
+								
+								<div class="">
+								 <label><a th:href="@{/forgot}">Forgot Password</a></label> 
+								</div>
+								
+								<div class=" text-center " >
+                                    <button type="submit" class="btn btn-primary" style="background-color:#009688!important;">Submit</button>
+                                    <button class="btn btn-primary" style="background-color:#008688!important;"><a href="/signup" style="color:white;text-decoration:none;">Register here</a></button>
+                                 </div>
+
+							</form>
+                        </div>
+                       
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+
+
+
+	</section>
+</body>
+</html>

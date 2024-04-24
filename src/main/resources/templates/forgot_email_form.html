@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="(~{base::Layout(~{::section})})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+</head>
+<body>
+    <section>
+		<div class="container p-3 ">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card mt-5">
+					    <div class="card-body ">
+				            
+							<!-- email form -->
+							<h3 class="text-center" style="color:#009688!important;">This is Email form !!</h3>
+							<div th:if="${session.message}">
+			                    <div class="alert  form-control text-center" th:classappend="${'alert-'+session.message.type}" role="alert">
+	                               <span th:text="${session.message.content}"></span>
+	                            </div>
+			                 </div>
+							
+							<form th:action="@{/send_otp}" method="post" >
+							
+							     <div class="form-group mt-2">
+							     <input type="text" required="required" name="email" class="form-control " placeholder="Enter your email"/>
+							     </div>
+							     
+							     <div class="container text-center">
+							     <button type="submit" class="btn btn-warning text-dark">Send OTP</button>
+							     </div>
+							</form>
+                        </div>
+                       
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+
+
+
+	</section>
+</body>
+</html>
